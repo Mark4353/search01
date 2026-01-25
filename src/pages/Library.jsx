@@ -1,0 +1,33 @@
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import MovieCard from "../components/MovieCard";
+import { getSaved } from "../utils/storage";
+import "./page.css";
+import "../app.css";
+
+export default function Library() {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    const saved = getSaved();
+    setMovies(saved);
+  }, []);
+
+  return (
+    <div className="container">
+      <h1>бібліотека</h1>
+      {movies.length === 0 ? (
+        <>
+          <p>немає збережених фільмів</p>
+          <Link to="/">Home</Link>
+        </>
+      ) : (
+        <div className="movie-grid">
+          {movies.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
