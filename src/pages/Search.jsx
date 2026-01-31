@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { searchMovies } from "../api/tmdb";
 import "./page.css";
-import "../app.css";
-import MovieList from "components/MovieList";
+import "../App.css";
+import MovieList from "../components/MovieList";
 
 export default function Search() {
   const [query, setQuery] = useState("");
@@ -37,12 +37,10 @@ export default function Search() {
         <button type="submit">Пошук</button>
       </form>
       
-      {loading && <p>Завантаження...</p>}
+      {loading && <p className="loading-text">Завантаження...</p>}
       <div className="movie-grid">
         {movies.length === 0 && !loading && <p>Немає результатів</p>}
-        {movies.map((movie) => (
-          <MovieList key={movie.id} movies={[movie]} />
-        ))}
+        {!loading && movies.length > 0 && <MovieList movies={movies} />}
       </div>
     </div>
   );

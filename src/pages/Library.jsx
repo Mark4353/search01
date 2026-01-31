@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
 import { getSaved } from "../utils/storage";
 import "./page.css";
-import "../app.css";
+import "../App.css";
 
 export default function Library() {
   const [movies, setMovies] = useState([]);
@@ -17,10 +17,10 @@ export default function Library() {
     <div className="container">
       <h1>бібліотека</h1>
       {movies.length === 0 ? (
-        <>
+        <div className="empty-state">
           <p>немає збережених фільмів</p>
-          <Link to="/">Home</Link>
-        </>
+          <Link to="/">Назад</Link>
+        </div>
       ) : (
         <div className="movie-grid">
           {movies.map((movie) => (

@@ -5,10 +5,10 @@ export default function Home() {
     <>
     <div className="container">
       <header>
-        <h2>Movies</h2>
+        <h2>фільми</h2>
         <ul>
-          <li><Link to="/library">library</Link></li>
-          <li><Link to="/search">search</Link></li>
+          <li><Link to="/library">Бібліотека</Link></li>
+          <li><Link to="/search">Пошук</Link></li>
         </ul>
       </header>
       <main>
