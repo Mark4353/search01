@@ -1,5 +1,5 @@
 import { save, remove, getSaved } from "../utils/storage";
-import "../app.css";
+import "../App.css";
 
 export default function MovieCard({ movie }) {
   const saved = getSaved().some((m) => m.id === movie.id);

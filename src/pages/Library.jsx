@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
 import { getSaved } from "../utils/storage";
 import "./page.css";
-import "../app.css";
+import "../App.css";
 
 export default function Library() {
   const [movies, setMovies] = useState([]);
