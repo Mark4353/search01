@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { searchMovies } from "../api/tmdb";
 import "./page.css";
-import "../App.css";
 import MovieList from "../components/MovieList";
 
 export default function Search() {

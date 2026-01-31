@@ -11,9 +11,6 @@ export default function Home() {
           <li><Link to="/search">Пошук</Link></li>
         </ul>
       </header>
-      <main>
-
-      </main>
       </div>
     </>
   );

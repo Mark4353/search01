@@ -1,5 +1,4 @@
 import MovieCard from "./MovieCard";
-import "../app.css";
 
 export default function MovieList({ movies }) {
   return (

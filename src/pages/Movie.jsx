@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
-import { useParams, useLocation, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { getMovieDetails } from "../api/tmdb";
 import { save, remove, getSaved } from "../utils/storage";
 import "./page.css";
-import "../App.css";
 
 export default function Movie() {
   const { id } = useParams();
-  const location = useLocation();
-  const [movie, setMovie] = useState(location.state?.movie || null);
+  const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(false);
   const [saved, setSaved] = useState(false);
 

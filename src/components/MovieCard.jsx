@@ -1,26 +1,24 @@
 import { save, remove, getSaved } from "../utils/storage";
 import { Link } from "react-router-dom";
-import "../App.css";
+import { useState } from "react";
 
 export default function MovieCard({ movie }) {
-  const saved = getSaved().some((m) => m.id === movie.id);
+  const [saved, setSaved] = useState(getSaved().some((m) => m.id === movie.id));
 
   const handleSave = (e) => {
     e.stopPropagation();
     e.preventDefault();
     if (saved) {
       remove(movie.id);
-      window.location.reload();
+      setSaved(false);
     } else {
       save(movie);
-      window.location.reload();
+      setSaved(true);
     }
   };
 
-  const posterUrl = movie.poster ||
-    (movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : "no-image");
-
-  const rating = movie.vote_average || movie.rating ? (movie.vote_average || movie.rating).toFixed ? (movie.vote_average || movie.rating).toFixed(1) : (movie.vote_average || movie.rating) : "N/A";
+  const posterUrl = movie.poster || (movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : "no-image");
+  const rating = (movie.rating || movie.vote_average || 0).toFixed(1);
   const title = movie.title || movie.name;
 
   return (

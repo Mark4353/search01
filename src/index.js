@@ -5,7 +5,7 @@ import App from "./App";
 import "./App.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/movie-search/">
     <App />
   </BrowserRouter>
 );
