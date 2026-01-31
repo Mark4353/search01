@@ -36,9 +36,8 @@ export default function Search() {
         />
         <button type="submit">Пошук</button>
       </form>
-
+      
       {loading && <p>Завантаження...</p>}
-
       <div className="movie-grid">
         {movies.length === 0 && !loading && <p>Немає результатів</p>}
         {movies.map((movie) => (
