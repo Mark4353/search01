@@ -8,7 +8,7 @@
     "react-router-dom": "^6.30.3",
     "react-scripts": "5.0.1"
   },
-  "homepage": "https://mark4353.github.io/movie-search/",
+  "homepage": "https://mark4353.github.io/search01/movie-search/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
