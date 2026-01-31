@@ -21,9 +21,13 @@ export const searchMovies = async (query) => {
 };
 
 export async function getPopular() {
+  if (!API_KEY) {
+    throw new Error('API ключ не знайдено');
+  }
   const res = await fetch(
     `${BASE_URL}/movie/popular?api_key=${API_KEY}&language=uk-UA`
   );
+  if (!res.ok) throw new Error(`API error: ${res.status}`);
   const data = await res.json();
   return data.results.map(mapMovie);
 }
