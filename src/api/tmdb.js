@@ -28,6 +28,20 @@ export async function getPopular() {
   return data.results.map(mapMovie);
 }
 
+export async function getMovieDetails(id) {
+  try {
+    const res = await fetch(
+      `${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=uk-UA`
+    );
+    if (!res.ok) throw new Error(`API error: ${res.status}`);
+    const data = await res.json();
+    return mapMovie(data);
+  } catch (err) {
+    console.error('Get movie details error:', err);
+    return null;
+  }
+}
+
 function mapMovie(m) {
   return {
     id: m.id,

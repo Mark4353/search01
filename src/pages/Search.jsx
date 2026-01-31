@@ -37,12 +37,10 @@ export default function Search() {
         <button type="submit">Пошук</button>
       </form>
       
-      {loading && <p>Завантаження...</p>}
+      {loading && <p className="loading-text">Завантаження...</p>}
       <div className="movie-grid">
-        {movies.length === 0 && !loading && <p>Немає результатів</p>  }
-        {movies.map((movie) => (
-          <MovieList key={movie.id} movies={[movie]} />
-        ))}
+        {movies.length === 0 && !loading && <p>Немає результатів</p>}
+        {!loading && movies.length > 0 && <MovieList movies={movies} />}
       </div>
     </div>
   );

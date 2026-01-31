@@ -17,10 +17,10 @@ export default function Library() {
     <div className="container">
       <h1>бібліотека</h1>
       {movies.length === 0 ? (
-        <>
+        <div className="empty-state">
           <p>немає збережених фільмів</p>
-          <Link to="/">Home</Link>
-        </>
+          <Link to="/">Назад</Link>
+        </div>
       ) : (
         <div className="movie-grid">
           {movies.map((movie) => (
