@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { searchMovies } from "../api/tmdb";
 import "./page.css";
 import MovieList from "../components/MovieList";
@@ -25,6 +26,7 @@ export default function Search() {
 
   return (
     <div className="container">
+      <Link to="/">Назад</Link>
       <h1>Пошук фільмів</h1>
       <form onSubmit={handleSearch}>
         <input
